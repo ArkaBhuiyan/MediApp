@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, epage);
             fragmentTransaction.commit();
 
-        }else if(id==R.id.current_epidemic){
+        }else if(id == R.id.current_epidemic){
             CurrentEpidemicFragment currentEpidemicFragment=new CurrentEpidemicFragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, MapsMainActivity.class);
             startActivity(intent);
         }
-        else if(id==R.id.first_aid)
+        else if(id == R.id.first_aid)
         {
             FirstAid_fragment faid = new FirstAid_fragment();
             android.support.v4.app.FragmentTransaction fragmentTransaction =
@@ -197,8 +197,8 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
 
-        //How to change elements in the header programatically
-        View headerView = navigationView.getHeaderView(0);
+        
+        View headerView = navigationView.getHeaderView(0); //How to change elements in the header programatically
 
 
         navigationView.setNavigationItemSelectedListener(this);
