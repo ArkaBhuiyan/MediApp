@@ -135,21 +135,26 @@ public class IntroActivity extends AppCompatActivity {
 
         dotsLayout.removeAllViews();
 
-        List<Integer> range = IntStream.range(0,9).boxed().collect(Collectors.toList());
+        List<Integer> range = IntStream.range(0,dots.length).boxed().collect(Collectors.toList());
         NameRepository nameRepository = new NameRepository(dots);
         for(Iterator iter = nameRepository.getIterator();iter.hasNext();)
         {
-
-
-        }
-
-        for (int i = 0; i < dots.length; i++) {
-            dots[i] = new TextView(this);
-            dots[i].setText(Html.fromHtml("&#8226;"));
-            dots[i].setTextSize(35);
-            dots[i].setTextColor(getResources().getColor(R.color.dot_inactive));
+            int index = (int)iter.next();
+            dots[index] = new TextView(this);
+            dots[index].setText(Html.fromHtml("&#8226;"));
+            dots[index].setTextSize(35);
+            dots[index].setTextColor(getResources().getColor(R.color.dot_inactive));
             dotsLayout.addView(dots[i]);
+
         }
+
+//        for (int i = 0; i < dots.length; i++) {
+//            dots[i] = new TextView(this);
+//            dots[i].setText(Html.fromHtml("&#8226;"));
+//            dots[i].setTextSize(35);
+//            dots[i].setTextColor(getResources().getColor(R.color.dot_inactive));
+//            dotsLayout.addView(dots[i]);
+//        }
 
         if (dots.length > 0)
             dots[currentPage].setTextColor(getResources().getColor(R.color.dot_active));
