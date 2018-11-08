@@ -1,7 +1,9 @@
 package com.example.maruf.e_pharma.First_Aid;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.shuvo.medicare.R;
+
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class IntroActivity extends AppCompatActivity {
 
@@ -122,10 +129,20 @@ public class IntroActivity extends AppCompatActivity {
     };
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void addBottomDots(int currentPage) {
         dots = new TextView[layouts.length];
 
         dotsLayout.removeAllViews();
+
+        List<Integer> range = IntStream.range(0,9).boxed().collect(Collectors.toList());
+        NameRepository nameRepository = new NameRepository(dots);
+        for(Iterator iter = nameRepository.getIterator();iter.hasNext();)
+        {
+
+
+        }
+
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new TextView(this);
             dots[i].setText(Html.fromHtml("&#8226;"));
