@@ -20,7 +20,7 @@ import java.util.List;
 class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
 
     private String googlePlacesData;
-    private GoogleMap mMap;
+    public GoogleMap mMap;
     String url;
 
     @Override
